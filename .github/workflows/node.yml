@@ -14,3 +14,11 @@ jobs:
         node-version: 10.x
     - name: fetch_data
       run: node fetch_data.js
+    - name: Upload COS
+      uses: zkqiang/tencent-cos-action@master
+        with:
+          args: delete -r -f / && upload data.json /
+          secret_id: ${{ secrets.COS_KEY_ID }}
+          secret_key: ${{ secrets.COS_KEY_SECRET }}
+          bucket: githubactions-1259095740
+          region: ap-beijing
