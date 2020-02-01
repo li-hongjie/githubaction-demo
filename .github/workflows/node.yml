@@ -1,0 +1,14 @@
+name: Git Actions Test
+on: [push]
+
+jobs:
+  fetch_data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: fetch_data
+      run: node fetch_data.js
